@@ -1,0 +1,66 @@
+package com.MavenProjectHQL.HQLhibernate;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Student {
+	
+	@Id
+	private int Sid;
+	private String Sname;
+	private int Smarks;
+	
+	
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Student(int sid, String sname, int smarks) {
+		super();
+		Sid = sid;
+		Sname = sname;
+		Smarks = smarks;
+	}
+
+
+	public int getSid() {
+		return Sid;
+	}
+
+
+	public void setSid(int sid) {
+		Sid = sid;
+	}
+
+
+	public String getSname() {
+		return Sname;
+	}
+
+
+	public void setSname(String sname) {
+		Sname = sname;
+	}
+
+
+	public int getSmarks() {
+		return Smarks;
+	}
+
+
+	public void setSmarks(int smarks) {
+		Smarks = smarks;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Student [Sid=" + Sid + ", Sname=" + Sname + ", Smarks=" + Smarks + "]";
+	}
+	
+	
+ 
+}

@@ -1,0 +1,41 @@
+package com.Sarvlet;
+import java.io.IOException;
+
+import javax.servlet.*;
+public class FirstSarvlet implements Servlet{
+
+	ServletConfig config;
+	
+	@Override
+	public void destroy() {
+		System.out.println("Going to Distory......");
+		
+	}
+
+	@Override
+	public ServletConfig getServletConfig() {
+		
+		return this.config;
+	}
+
+	@Override
+	public String getServletInfo() {
+		
+		return "This servlet created by Adeep......";
+	}
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		this.config = config;
+		
+		System.out.println("Createing Objects....");
+		
+	}
+
+	@Override
+	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+		System.out.println("Servicing......");
+		
+	}
+
+}

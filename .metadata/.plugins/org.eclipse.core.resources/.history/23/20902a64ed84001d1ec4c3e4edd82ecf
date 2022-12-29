@@ -1,0 +1,28 @@
+package ManyToMany;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+public class Main2 {
+
+	public static void main(String[] args) {
+		
+		Configuration config = new Configuration();
+		config.configure("OneToMany.cfg.xml");
+		SessionFactory factory = config.buildSessionFactory();
+		
+		Session sess = factory.openSession();
+		
+		String query = "from Employe";
+		Query ans = sess.createQuery(query);
+		Employe emp =  (Employe) ans.uniqueResult();
+		System.out.println(emp.getEmpName());
+		
+		sess.close();
+		factory.close();
+
+	}
+
+}

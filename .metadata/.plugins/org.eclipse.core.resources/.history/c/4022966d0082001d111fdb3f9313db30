@@ -1,0 +1,24 @@
+package com.HibernateApp2;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Product {
+	
+	@Id
+	private int productId;
+	
+	@Column(name = "Product_Name")
+	private String productName;
+	
+	@Column(name = "Product_Price")
+	private int productPrice;
+	
+	@Column(name = "Expiry_Date")
+	private String productExp;
+	
+	
+
+}

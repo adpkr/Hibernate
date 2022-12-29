@@ -1,0 +1,5 @@
+package com.HibernateApp2;
+
+public class StudentAddress {
+
+}

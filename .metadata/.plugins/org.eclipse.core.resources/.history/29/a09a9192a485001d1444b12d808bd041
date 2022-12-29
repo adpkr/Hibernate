@@ -1,0 +1,5 @@
+package com.MavenProjectHQL;
+
+public class Department {
+
+}

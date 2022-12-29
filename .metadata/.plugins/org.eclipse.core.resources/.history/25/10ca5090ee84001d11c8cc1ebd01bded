@@ -1,0 +1,43 @@
+package ManyToMany;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+public class Main2 {
+
+	public static void main(String[] args) {
+		
+		Configuration config = new Configuration();
+		config.configure("OneToMany.cfg.xml");
+		SessionFactory factory = config.buildSessionFactory();
+		
+		Session sess = factory.openSession();
+		
+		String query = "from Employe";
+
+		//One entity fatching.....
+		//------------------------
+//		Query ans = sess.createQuery(query);
+//		Employe emp =  (Employe) ans.uniqueResult();
+//		System.out.println(emp.getEmpName());
+		
+		
+		//more then one fatching.....
+		
+		Query q= sess.createQuery(query);
+		List<Employe>ls= q.list();
+		for(Employe a : ls) {
+			System.out.println(a.getEmpName());
+		}
+		
+		
+		sess.close();
+		factory.close();
+
+	}
+
+}

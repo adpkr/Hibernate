@@ -1,0 +1,33 @@
+package com.HibernateApp2.HibernateMavanApp2;
+
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class App {
+	
+    public static void main( String[] args ){
+    	
+    	SessionFactory factory = new Configuration().configure("hibernateApp2.cfg.xml").buildSessionFactory();
+    	
+    	System.out.println(factory);
+    	System.out.println("Connected...");
+    	
+    	Product p = new Product();
+    	p.setProductId(2);
+    	p.setProductName("Bike");
+    	p.setProductPrice(150000);
+    	p.setProductQuantity(2);
+    	
+    	Session sess = factory.openSession();
+    	
+    	Transaction trans = sess.beginTransaction();
+    	sess.save(p);
+    	trans.commit();
+    	sess.close();
+    	
+        
+    }
+}

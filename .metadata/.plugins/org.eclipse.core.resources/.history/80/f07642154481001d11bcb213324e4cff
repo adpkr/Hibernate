@@ -1,0 +1,42 @@
+package com.HibernateApp2;
+
+
+
+import java.util.Date;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	
+    public static void main( String[] args ){
+    	
+    	SessionFactory factory = new Configuration().configure("hibernateAnnotationApp.cfg.xml").buildSessionFactory();
+    	
+    	StudentAddress sd = new StudentAddress();
+    	sd.setStreet("Dhurwa");
+    	sd.setCity("Ranchi");
+    	sd.setOpen(true);
+    	sd.setAddDate(new Date());
+    	sd.setX(2314.34);
+    	
+    	System.out.println(sd);
+    	
+    	Session sess = factory.openSession();
+    	Transaction trans = sess.beginTransaction();
+    	sess.save(sd);
+    	trans.commit();
+    	sess.close();
+    	
+    	
+    	System.out.println("Done....!");
+    	
+       
+    }
+}

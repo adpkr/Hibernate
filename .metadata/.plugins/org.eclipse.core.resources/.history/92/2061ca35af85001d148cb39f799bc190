@@ -1,0 +1,25 @@
+package com.MavenProjectHQL;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+public class App2 {
+	
+    public static void main(String[] args) {
+		
+    	SessionFactory factory = new Configuration().configure("HibernateQuery.cfg.xml").buildSessionFactory();
+    	Session sess = factory.openSession();
+    	
+    	Query q = sess.createQuery("from Employe where eName = 'Adeep'");
+    	String ans = (String) q.uniqueResult();
+    	
+    	System.out.println(ans);
+    	
+    	sess.close();
+    	factory.close();
+    	
+	}
+
+}

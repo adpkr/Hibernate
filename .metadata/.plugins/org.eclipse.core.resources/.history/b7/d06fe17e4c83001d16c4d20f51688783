@@ -1,0 +1,22 @@
+package com.HibernateAppOneToMany;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.*;
+
+@Entity
+public class Questions {
+	
+	@Id
+	private int questionId;
+	private String question;
+	
+	@OneToMany
+	private List<Answers> ans;
+
+
+	
+	
+
+}

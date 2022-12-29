@@ -1,0 +1,34 @@
+package com.MavenProjectHQL;
+
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+public class App5 {
+	
+	public static void main(String[] args) {
+		
+		SessionFactory factory = new Configuration().configure("HibernateQuery.cfg.xml").buildSessionFactory();
+		Session sess = factory.openSession();
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter update Employe Name:");
+		String name = sc.next();
+		
+		Query q= sess.createQuery("update from Employe where eName = :n");
+		q.setParameter("n", "name");
+		
+		int x = q.executeUpdate();
+		System.out.println("_________________________________________________________________________");
+		System.out.println("Update Employe "+name);
+		System.out.println("-------------------------------------------------------------------------");
+		
+		sess.close();
+		factory.close();
+		
+	}
+
+}

@@ -1,0 +1,33 @@
+package com.HibernateApp2;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+    public static void main( String[] args ){
+    	
+    	
+    	Configuration config = new Configuration();
+    	config.configure("Embaded.cfg.xml");
+    	SessionFactory factory = config.buildSessionFactory();
+    	
+    	Student s = new Student();
+    	s.setStudentId(7);
+    	s.setStudentName("Adeep");
+    	s.setStudentAddress("Banglore");
+    	
+    	Certificate c = new Certificate();
+    	c.setCourse("Hibernate");
+    	c.setDuration("15 Days");
+    	
+    	
+    	
+    	
+    	
+       
+    }
+}
